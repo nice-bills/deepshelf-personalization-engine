@@ -4,7 +4,7 @@ A high-performance, standalone recommendation service that uses **Semantic Searc
 
 Unlike traditional recommenders that rely on collaborative filtering (which fails without massive user data), this engine uses **Sentence Transformers** to understand the *content* of books (Title + Author + Genre + Description), allowing it to work effectively from Day 1 ("Cold Start").
 
-## 🚀 Key Features
+## Key Features
 
 *   **Semantic Understanding:** Connects "The Haunted School" to "Ghost Beach" based on plot descriptions, not just title keywords.
 *   **Hybrid Scoring:** Combines **Semantic Similarity** (85%) with **Book Ratings** (15%) to recommend high-quality matches.
@@ -13,7 +13,7 @@ Unlike traditional recommenders that rely on collaborative filtering (which fail
 *   **Evaluation:** Achieves **40% Exact Hit Rate @ 10** on held-out author tests.
 *   **Standalone API:** Runs as a separate microservice (FastAPI) on Port 8001.
 
-## 🏗️ Architecture
+## Architecture
 
 This project uses a **retrieval-based** approach:
 
@@ -25,7 +25,7 @@ This project uses a **retrieval-based** approach:
     *   The engine searches the FAISS index for the nearest neighbors.
     *   Results are re-ranked using the book's rating.
 
-## 📦 Installation & Setup
+## Installation & Setup
 
 ### Prerequisites
 *   Python 3.10+ (or Docker)
@@ -67,7 +67,7 @@ python scripts/1b_generate_semantic_data.py
 python scripts/optimize_index.py
 ```
 
-## 🏃 Run the Application
+## Run the Application
 
 ### Option A: Run Locally
 ```bash
@@ -86,7 +86,7 @@ docker build -t personalise .
 docker run -p 8001:8001 personalise
 ```
 
-## 🧪 Evaluation & Demo
+## Evaluation & Demo
 We have included a synthetic dataset of 10,000 users to validate the model.
 
 **Run the Offline Evaluation:**
@@ -111,7 +111,7 @@ python scripts/visualize_users.py
 python scripts/inspect_data.py
 ```
 
-## 📡 API Usage
+## API Usage
 
 #### POST `/personalize/recommend`
 Get personalized books based on reading history.
@@ -131,7 +131,7 @@ Semantic search by plot or vibe.
 }
 ```
 
-## 📊 Performance Stats
+## Performance Stats
 
 | Metric | Brute Force (Flat) | Optimized (IVF-PQ) |
 | :--- | :--- | :--- |
@@ -140,10 +140,10 @@ Semantic search by plot or vibe.
 | **Speed** | ~10ms | ~2ms |
 | **Hit Rate @ 10** | N/A | **40.0%** |
 
-## 🗺️ Roadmap & Future Improvements
+## Roadmap & Future Improvements
 *   **Model Compression (ONNX):** Replace the heavy PyTorch dependency with **ONNX Runtime**. This would reduce the Docker image size from ~3GB to ~500MB and improve CPU inference latency by 2-3x.
 *   **Real-Time Learning:** Implement a "Session-Based" Recommender (using RNNs or Transformers) to adapt to user intent within a single session, rather than just long-term history.
 *   **A/B Testing Framework:** Add infrastructure to serve different model versions to different user segments to scientifically measure engagement.
 
-## 📄 License
+## License
 MIT
