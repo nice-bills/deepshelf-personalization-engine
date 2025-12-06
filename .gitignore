@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.env
+
+# Data & Models (Too large for git)
+data/
+*.pt
+*.pth
+*.parquet
+*.csv
+
+# IDE
+.vscode/
+.idea/
+
+Gemini.md 
+PROJECT_LOG.md

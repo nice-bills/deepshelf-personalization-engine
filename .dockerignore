@@ -1,0 +1,16 @@
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+*.log
+.git
+.mypy_cache
+.pytest_cache
+
+# Ignore raw data if any, but keep catalog/index/embeddings
+data/raw
+data/synthetic

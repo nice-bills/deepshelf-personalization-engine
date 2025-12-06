@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+numpy
+pandas
+faiss-cpu
+sentence-transformers
+requests
+huggingface_hub
